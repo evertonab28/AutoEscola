@@ -9,14 +9,18 @@
     <ui:define name="conteudo">
         <p:toolbar>
             <f:facet name="left">
-                <p:commandButton value="Novo" icon="ui-icon-document" />
+                <p:commandButton value="Novo" icon="fa fa-plus" styleClass="btn-primary"/>                             
+                <p:commandButton value="Cancelar" icon="fa fa-plus" styleClass="btn-fatal"/>                             
+                <p:commandButton value="Aviso" icon="fa fa-plus" styleClass="btn-warning"/>                             
+                <p:commandButton value="Confirmar" icon="fa fa-plus" styleClass="btn-success"/>                             
                 <span class="ui-separator">
                     <span class="ui-icon ui-icon-grip-dotted-vertical" />
                 </span>
-                <p:commandButton icon="ui-icon-pencil" title="Editar" />                   
-                <p:commandButton icon="ui-icon-trash" title="Excluir" />
+                <p:commandButton icon="ui-icon-pencil" value="Editar" title="Editar" styleClass="btn-teal"/>                   
+                <p:commandButton icon="ui-icon-trash" value="Excluir" title="Excluir" styleClass="btn-danger"/>
             </f:facet>
         </p:toolbar>   
+
     </ui:define>
 
 </ui:composition>
