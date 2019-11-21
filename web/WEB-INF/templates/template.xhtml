@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="head">
+        <title>AutoEscola WebApp</title>
+        <h:outputStylesheet library="css" name="starter.css"/>
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        AutoEscola WebApp
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        AE
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+            <li>
+                <p:link href="/AutoEscola/index.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </p:link>
+            </li>
+            <li class="header">
+                Geral
+            </li>
+            <li>
+                <p:link href="/AutoEscola/log-in.xhtml">
+                    <i class="fa fa-sign-in"></i>
+                    <span>Login</span>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="/AutoEscola/Alunos.xhtml">
+                    <i class="fa fa-user"></i>
+                    <span>Alunos</span>
+                </p:link>
+            </li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="top-menu">
+        <ui:include src="/includes/top-bar.xhtml"/>
+    </ui:define>
+
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+            Copyright (C) 2017 - AdminFaces
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+</ui:composition>
