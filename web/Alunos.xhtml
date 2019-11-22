@@ -5,15 +5,22 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/template.xhtml">
-<!--                template="WEB-INF/template/Layout.xhtml">-->
+    <!--                template="WEB-INF/template/Layout.xhtml">-->
 
+<!--    <ui:define name="head-alunos">
+        <f:metadata>
+            <f:viewAction action="#{alunoBean.todosOsAlunos()}"/>
+        </f:metadata>
+    </ui:define>
+    -->
     <ui:define name="body">
         <p:toolbar>
             <f:facet name="left">
-                <p:commandButton value="Novo" icon="fa fa-plus" styleClass="btn-primary"/>                             
-<!--                <p:commandButton value="Cancelar" icon="fa fa-plus" styleClass="btn-fatal"/>                             
-                <p:commandButton value="Aviso" icon="fa fa-plus" styleClass="btn-warning"/>                             
-                <p:commandButton value="Confirmar" icon="fa fa-plus" styleClass="btn-success"/>                             -->
+                <p:commandButton value="Novo" icon="fa fa-plus" styleClass="btn-primary"
+                                 onclick="PF('edicaoAlunoDialog').show()"/>                             
+                <!--                                <p:commandButton value="Cancelar" icon="fa fa-plus" styleClass="btn-fatal"/>                             
+                                                <p:commandButton value="Aviso" icon="fa fa-plus" styleClass="btn-warning"/>                             
+                                                <p:commandButton value="Confirmar" icon="fa fa-plus" styleClass="btn-success"/>                             -->
                 <span class="ui-separator">
                     <span class="ui-icon ui-icon-grip-dotted-vertical" />
                 </span>
@@ -21,6 +28,56 @@
                 <p:commandButton icon="ui-icon-trash" title="Excluir" styleClass="btn-danger"/>
             </f:facet>
         </p:toolbar>   
+
+        <p:dataTable value="#{alunoBean.listaDeAlunos}" var="aluno" emptyMessage="Nenhum aluno cadastrado"
+                     rows="10" paginator="true" paginatorPosition="bottom" style="margin-top: 10px">
+            <p:column headerText="ID" width="100">
+                <h:outputText value="#{aluno.id}"/>
+            </p:column>
+            <p:column headerText="Nome" width="250">
+                <h:outputText value="#{aluno.nome}"/>
+            </p:column>
+            <p:column headerText="RG" width="150">
+                <h:outputText value="#{aluno.RG}"/>
+            </p:column>
+            <p:column headerText="CPF" width="150">
+                <h:outputText value="#{aluno.CPF}"/>
+            </p:column>
+            <p:column headerText="Telefone" width="180">
+                <h:outputText value="#{aluno.telefone}"/>
+            </p:column>
+            <p:column headerText="Email">
+                <h:outputText value="#{aluno.email}"/>
+            </p:column>
+        </p:dataTable>
+
+        <!--        DIALOG DE CADASTRO-->
+        <p:dialog header="Gerenciar Aluno" widgetVar="edicaoAlunoDialog" id="aluno-dialog"
+                  resizable="false" modal="true" closeOnEscape="true">
+            <h:panelGrid columns="2" id="panel-dialog">
+                <p:outputLabel value="ID" for="id"  style="margin-right: 10px"/>
+                <p:inputText id="id" size="10" maxlength="10"/>
+                <p:outputLabel value="Nome" for="nome" style="margin-right: 10px;"/>
+                <p:inputText id="nome" size="50" maxlength="120"/>
+                <p:outputLabel value="RG" for="rg" style="margin-right: 10px;"/>
+                <p:inputText id="rg" size="25" maxlength="25"/>
+                <p:outputLabel value="CPF" for="cpf" style="margin-right: 10px;"/>
+                <p:inputText id="cpf" size="25" maxlength="25"/>
+                <p:outputLabel value="Telefone" for="telefone" style="margin-right: 10px;"/>
+                <p:inputText id="telefone" size="25" maxlength="25"/>
+                <p:outputLabel value="Email" for="email" style="margin-right: 10px;"/>
+                <p:inputText id="email" size="50" maxlength="120"/>
+                <p:outputLabel value="Data de Nascimento" for="data" style="margin-right: 10px;"/>
+                <p:inputText id="data" size="25" maxlength="25"/>
+                <p:outputLabel value="Endereço" for="endereco" style="margin-right: 10px;"/>
+                <p:inputText id="endereco" size="25" maxlength="25"/>
+                <p:outputLabel value="Categoria" for="categoria" style="margin-right: 10px;"/>
+                <p:inputText id="categoria" size="25" maxlength="25"/>
+                
+                <p:outputLabel />
+                <p:commandButton id="salvar-aluno" value="Salvar" style="margin-top: 10px" styleClass="btn-success"/>
+            </h:panelGrid>
+        </p:dialog>
 
     </ui:define>
 
